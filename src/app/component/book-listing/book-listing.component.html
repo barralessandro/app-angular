@@ -1,0 +1,20 @@
+<table class="table">
+    <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Titolo</th>
+          <th scope="col">Costo (Euro)</th>
+          <th scope="col">Data</th>
+          <th scope="col">Quantità disponibile</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let book of booksForForGetAll">
+          <td>{{book.id}}</td>
+          <td>{{book.title}}</td>
+          <td>{{book.price}}</td>
+          <td>{{book.releaseDate}}</td>
+          <td>{{book.quantity}}</td>
+        </tr>
+      </tbody>
+</table>
