@@ -10,7 +10,7 @@ import { WebService } from 'src/app/service/web.service';
 })
 export class UserPageComponent implements OnInit {
   userId: any;
-  userInfo: UserInfo = new UserInfo({});
+  userInfo: UserInfo;
   
   constructor(public activatedRoute: ActivatedRoute, public webService: WebService) {
     if(!!this.activatedRoute.snapshot.paramMap.get('id')) {
@@ -19,9 +19,11 @@ export class UserPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.webService.getUserInfo(this.userId).subscribe(data =>{
-      this.userInfo = new UserInfo(data);
-    });
+    if(!!this.userId) {
+      this.webService.getUserInfo(this.userId).subscribe(data =>{
+        this.userInfo = new UserInfo(data);
+      });
+    }
   }
 
 }

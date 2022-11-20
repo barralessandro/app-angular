@@ -2,22 +2,22 @@
   "user-login": [
     {
       "id": 1,
-      "username": "prova@prova.it",
+      "email": "prova@prova.it",
       "password": "prova"
     },
     {
       "id": 2,
       "username": "prova2@email.it",
-      "password": "prova2"
+      "email": "prova2"
     }
   ],
   "user-info": [
     {
       "id": 1,
       "userLoginInfoId": 1,
-      "firstName": "Mario",
-      "lastName": "Rossi",
-      "username": "prova@prova.it",
+      "firstname": "Mario",
+      "lastname": "Rossi",
+      "email": "prova@prova.it",
       "city": "Milano",
       "cap": "33443",
       "province": "MI"
@@ -25,9 +25,9 @@
     {
       "id": 2,
       "userLoginInfoId": 2,
-      "firstName": "Filippo",
-      "lastName": "Rossi",
-      "username": "prova@prova.it",
+      "firstname": "Filippo",
+      "lastname": "Rossi",
+      "email": "prova@prova.it",
       "city": "Roma",
       "cap": "55344",
       "province": "RM"

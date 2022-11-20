@@ -8,7 +8,7 @@ import { UserInfo } from 'src/app/model/userInfo';
 })
 export class MenuComponent implements OnInit {
 
-  @Input() userInfo: UserInfo = new UserInfo({});
+  @Input() userInfo: UserInfo;
 
   constructor() {
   }

@@ -3,9 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { JoinPageComponent } from './component/join-page/join-page.component';
 import { LoginPageComponent } from './component/login-page/login-page.component';
 import { NotFoundComponent } from './component/not-found/not-found.component';
-import { ReactiveFormComponent } from './component/reactive-form/reactive-form.component';
 import { ResetPasswordComponent } from './component/reset-password/reset-password.component';
-import { TemplateDrivenFormComponent } from './component/template-driven-form/template-driven-form.component';
 import { UserPageComponent } from './component/user-page/user-page.component';
 
 const routes: Routes = [

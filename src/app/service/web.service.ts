@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Book } from '../model/book';
+import { LoginInfo } from '../model/loginInfo';
 
 @Injectable({
   providedIn: 'root'
@@ -13,8 +14,9 @@ export class WebService {
 
   constructor(public http: HttpClient) { }
 
-  getAllUsersLoginInfo(): Observable<any> {
-    return this.http.get<any>(this.USER_LOGIN_URL);
+  login(loginInfo: LoginInfo): Observable<any> {
+    return this.http.get<any>(this.USER_LOGIN_URL + "?email="
+      + loginInfo.email + "&password="+ loginInfo.password);
   }
 
   getUserInfo(id:string): Observable<any> {

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { LoginInfo } from 'src/app/model/loginInfo';
 import { UserInfo } from 'src/app/model/userInfo';
-import { UtilityService } from 'src/app/service/utility.service';
 import { WebService } from 'src/app/service/web.service';
 
 @Component({
@@ -10,32 +11,39 @@ import { WebService } from 'src/app/service/web.service';
   styleUrls: ['./login-page.component.css']
 })
 export class LoginPageComponent implements OnInit {
+  loginFormGroup: FormGroup;
+  showSpinner: boolean;
   userInfoList: any[] = [];
   userInfoElem: UserInfo = new UserInfo({});
   constructor(public webService: WebService,
               public route: Router) { }
 
   ngOnInit(): void {
-    this.webService.getAllUsersLoginInfo().subscribe(data =>{
-      this.userInfoList = data;
+    this.loginFormGroup = new FormGroup({
+      email : new FormControl(null, [Validators.required, Validators.email]),
+      password : new FormControl(null, [Validators.required])
     });
   }
 
-  login(elem: any) {
-    if(true) {
-      this.userInfoElem = this.userInfoList.filter(userInfo => this.checkUserInfo(userInfo, ''))[0];
-      if(!!this.userInfoElem && !!this.userInfoElem.id) {
-        this.route.navigateByUrl('user-home/'+this.userInfoElem.id);
-      } else {
-        this.route.navigateByUrl("not-found");
-      }
+  login() {
+    this.showSpinner = true;
+    let user: LoginInfo;
+    let userInfo = 
+      new LoginInfo(0,this.loginFormGroup.value.email, 
+                    this.loginFormGroup.value.password);
+    if(!!userInfo && !!userInfo.email && !!userInfo.password) {
+      //delay(5000);
+      this.webService.login(userInfo).subscribe(data => {
+        let info = data[0];
+        user = new LoginInfo(info.id, info.email, info.password);
+        this.showSpinner = false;
+        if(!!user) {
+          this.route.navigateByUrl('user-home/'+user.id);
+        } else {
+          this.route.navigateByUrl('not-found');
+        }
+      });
     }
   }
-
-  checkUserInfo(userInfo:any, userInfoFromBrowser: any) {
-    return userInfo.username === userInfoFromBrowser.username && 
-    userInfo.password === userInfoFromBrowser.password;
-  }
-
 
 }
