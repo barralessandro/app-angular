@@ -7,8 +7,13 @@
     },
     {
       "id": 2,
-      "username": "prova2@email.it",
-      "email": "prova2"
+      "email": "prova2@email.it",
+      "password": "prova2"
+    },
+    {
+      "id": 3,
+      "email": "test@test.it",
+      "password": "test"
     }
   ],
   "user-info": [
