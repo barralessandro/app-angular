@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { map } from 'rxjs';
 import { LoginInfo } from 'src/app/model/loginInfo';
 import { UserInfo } from 'src/app/model/userInfo';
 import { WebService } from 'src/app/service/web.service';
@@ -28,22 +29,40 @@ export class LoginPageComponent implements OnInit {
   login() {
     this.showSpinner = true;
     let user: LoginInfo;
+    let info: {id: any, email: any, password: AnimationPlaybackEventInit};
     let userInfo = 
       new LoginInfo(0,this.loginFormGroup.value.email, 
                     this.loginFormGroup.value.password);
+    
     if(!!userInfo && !!userInfo.email && !!userInfo.password) {
       //delay(5000);
       this.webService.login(userInfo).subscribe(data => {
         let info = data[0];
-        user = new LoginInfo(info.id, info.email, info.password);
-        this.showSpinner = false;
-        if(!!user) {
-          this.route.navigateByUrl('user-home/'+user.id);
+        this.showSpinner = false; 
+        if(!!info && !!info.id) {
+          this.route.navigateByUrl('user-home/'+info.id);
         } else {
           this.route.navigateByUrl('not-found');
         }
       });
     }
+    /*
+    if(!!userInfo && !!userInfo.email && !!userInfo.password) {
+      //delay(5000);
+      this.webService.login(userInfo).pipe(map(data => {
+        info = data[0]
+      })).subscribe(()=> {
+        this.showSpinner = false;
+        if(!!info) {
+          this.route.navigateByUrl('user-home/'+info.id);
+        } else {
+          this.route.navigateByUrl('not-found');
+        }
+      });
+    }
+    GESTIONE ERRORI
+    FARE UNSUBSCRIBE
+    */
   }
 
 }
