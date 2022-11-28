@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,6 +13,8 @@ import { LoginPageComponent } from './component/login-page/login-page.component'
 import { UserPageComponent } from './component/user-page/user-page.component';
 import { BookListingComponent } from './component/book-listing/book-listing.component';
 import { MenuComponent } from './component/menu/menu.component';
+import { HomepageComponent } from './component/homepage/homepage.component';
+import { CarouselComponent } from './component/carousel/carousel.component';
 
 @NgModule({
   declarations: [
@@ -22,13 +25,16 @@ import { MenuComponent } from './component/menu/menu.component';
     LoginPageComponent,
     UserPageComponent,
     BookListingComponent,
-    MenuComponent
+    MenuComponent,
+    HomepageComponent,
+    CarouselComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule, // from '@angular/platform-browser/animations';
   ],
   providers: [],
   bootstrap: [AppComponent]
