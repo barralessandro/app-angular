@@ -5,17 +5,33 @@ import { map } from 'rxjs';
 import { LoginInfo } from 'src/app/model/loginInfo';
 import { UserInfo } from 'src/app/model/userInfo';
 import { WebService } from 'src/app/service/web.service';
+import { 
+  trigger, 
+  state, 
+  style, 
+  animate, 
+  transition } from '@angular/animations';
 
 @Component({
   selector: 'app-login-page',
   templateUrl: './login-page.component.html',
-  styleUrls: ['./login-page.component.css']
+  styleUrls: ['./login-page.component.css'],
+  animations: [
+    trigger('toggleClick', [
+    state('true', style({ backgroundColor: 'blue'})),
+    state('false', style({ backgroundColor: 'red' })),
+    transition('true => false', animate('1000ms linear')),
+    transition('false => true', animate('1000ms linear'))
+  ])
+  ]  
 })
 export class LoginPageComponent implements OnInit {
   loginFormGroup: FormGroup;
   showSpinner: boolean;
   userInfoList: any[] = [];
   userInfoElem: UserInfo = new UserInfo({});
+  isBlue: string = 'true';
+
   constructor(public webService: WebService,
               public route: Router) { }
 
@@ -26,7 +42,12 @@ export class LoginPageComponent implements OnInit {
     });
   }
 
+  toggleIsCorrect() {
+    this.isBlue = this.isBlue === 'true' ? 'false' : 'true';
+  }
+
   login() {
+    /*
     this.showSpinner = true;
     let user: LoginInfo;
     let info: {id: any, email: any, password: AnimationPlaybackEventInit};
@@ -46,7 +67,6 @@ export class LoginPageComponent implements OnInit {
         }
       });
     }
-    /*
     if(!!userInfo && !!userInfo.email && !!userInfo.password) {
       //delay(5000);
       this.webService.login(userInfo).pipe(map(data => {

@@ -23,8 +23,7 @@
               class="divider d-flex align-items-center my-4">
               <div class="spinner-border"></div>
             </div>
-            <button type="submit" class="btn btn-primary btn-lg btn-block" 
-              [disabled]="!loginFormGroup.valid">Accedi</button>
+            <button [@toggleClick]="isBlue" (click)="toggleIsCorrect()" type="submit" class="btn btn-primary btn-lg btn-block">Accedi</button>
             
             <div class="divider d-flex align-items-center my-4">
               <p class="text-center fw-bold mx-3 mb-0 text-muted">OPPURE</p>
