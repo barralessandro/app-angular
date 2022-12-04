@@ -15,6 +15,7 @@ import { BookListingComponent } from './component/book-listing/book-listing.comp
 import { MenuComponent } from './component/menu/menu.component';
 import { HomepageComponent } from './component/homepage/homepage.component';
 import { CarouselComponent } from './component/carousel/carousel.component';
+import { AboutUsComponent } from './component/about-us/about-us.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { CarouselComponent } from './component/carousel/carousel.component';
     BookListingComponent,
     MenuComponent,
     HomepageComponent,
-    CarouselComponent
+    CarouselComponent,
+    AboutUsComponent
   ],
   imports: [
     BrowserModule,
