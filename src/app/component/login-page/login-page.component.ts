@@ -47,7 +47,6 @@ export class LoginPageComponent implements OnInit {
   }
 
   login() {
-    /*
     this.showSpinner = true;
     let user: LoginInfo;
     let info: {id: any, email: any, password: AnimationPlaybackEventInit};
@@ -67,6 +66,7 @@ export class LoginPageComponent implements OnInit {
         }
       });
     }
+    /*
     if(!!userInfo && !!userInfo.email && !!userInfo.password) {
       //delay(5000);
       this.webService.login(userInfo).pipe(map(data => {
