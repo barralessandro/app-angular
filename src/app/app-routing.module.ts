@@ -20,11 +20,13 @@ const routes: Routes = [
   },
   {
     path: "user-home/:id",
-    component: UserPageComponent
+    component: UserPageComponent,
+    data: { animation: 'HomePage' }
   },
   {
     path: "about-us",
-    component: AboutUsComponent
+    component: AboutUsComponent,
+    data: { animation: 'AboutPage' }
   },
   {
     path: "login",
