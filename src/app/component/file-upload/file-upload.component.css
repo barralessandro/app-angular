@@ -1,0 +1,16 @@
+.file-input {
+    display: none;
+}
+
+.upload-file-container {
+    width: 300px;
+    height: 300px;  
+    padding: 70px;
+    border: 7px solid lightblue;
+    box-sizing: border-box;
+}
+
+
+.container {
+    padding-left: 30%;
+}

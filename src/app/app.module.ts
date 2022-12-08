@@ -16,6 +16,8 @@ import { MenuComponent } from './component/menu/menu.component';
 import { HomepageComponent } from './component/homepage/homepage.component';
 import { CarouselComponent } from './component/carousel/carousel.component';
 import { AboutUsComponent } from './component/about-us/about-us.component';
+import { FileUploadComponent } from './component/file-upload/file-upload.component';
+import { AppDragDropDirective } from './app-drag-drop-directive.directive';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { AboutUsComponent } from './component/about-us/about-us.component';
     MenuComponent,
     HomepageComponent,
     CarouselComponent,
-    AboutUsComponent
+    AboutUsComponent,
+    FileUploadComponent,
+    AppDragDropDirective
   ],
   imports: [
     BrowserModule,
