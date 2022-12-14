@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -18,6 +18,7 @@ import { CarouselComponent } from './component/carousel/carousel.component';
 import { AboutUsComponent } from './component/about-us/about-us.component';
 import { FileUploadComponent } from './component/file-upload/file-upload.component';
 import { AppDragDropDirective } from './app-drag-drop-directive.directive';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { AppDragDropDirective } from './app-drag-drop-directive.directive';
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule, // from '@angular/platform-browser/animations';
+    BrowserAnimationsModule,
+    ServiceWorkerModule.register('ngsw-worker.js'), // from '@angular/platform-browser/animations';
   ],
   providers: [],
   bootstrap: [AppComponent]
