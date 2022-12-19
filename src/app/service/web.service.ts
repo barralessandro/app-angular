@@ -19,7 +19,7 @@ export class WebService {
       + loginInfo.email + "&password="+ loginInfo.password);
   }
 
-  getUserInfo(id:string): Observable<any> {
+  getUserInfo(id:any): Observable<any> {
     return this.http.get<any>(this.USER_INFO_URL + '/' + id);
   }
 

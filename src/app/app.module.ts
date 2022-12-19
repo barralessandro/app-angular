@@ -19,6 +19,9 @@ import { AboutUsComponent } from './component/about-us/about-us.component';
 import { FileUploadComponent } from './component/file-upload/file-upload.component';
 import { AppDragDropDirective } from './app-drag-drop-directive.directive';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { InsertBookModalComponent } from './component/insert-book-modal/insert-book-modal.component';
+import { BookModalComponent } from './book-modal/book-modal.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -34,7 +37,9 @@ import { ServiceWorkerModule } from '@angular/service-worker';
     CarouselComponent,
     AboutUsComponent,
     FileUploadComponent,
-    AppDragDropDirective
+    AppDragDropDirective,
+    InsertBookModalComponent,
+    BookModalComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +47,8 @@ import { ServiceWorkerModule } from '@angular/service-worker';
     HttpClientModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    ServiceWorkerModule.register('ngsw-worker.js'), // from '@angular/platform-browser/animations';
+    MatDialogModule
+    //ServiceWorkerModule.register('ngsw-worker.js'), // from '@angular/platform-browser/animations';
   ],
   providers: [],
   bootstrap: [AppComponent]

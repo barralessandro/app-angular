@@ -23,7 +23,7 @@ export class BookListingComponent implements OnInit {
 
   ngOnInit(): void {
     this.webService.getAll().subscribe(data => {
-        this.booksForForGetAll = data;
+      this.booksForForGetAll = data;
     });
   }
 

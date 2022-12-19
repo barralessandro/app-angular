@@ -18,20 +18,16 @@ export class FileUploadComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onDrag(event: any) {
+  onDragOrOnSelect(event: any, isDrag: any) {
+    let file: any;
     if(event.length > 1) {
       this.error = "Non è possibile caricare più di un file";
-    } else {      
-      const file = event[0];
-      this.checkFile(file);
-    }
-  }
-
-  onSelect(event: any) {
-    if(event.length > 1) {
-      this.error = "Non è possibile caricare più di un file.";
-    } else {      
-      const file = event.target.files[0];
+    } else {
+      if(isDrag) {
+        file = event[0];
+      } else {
+        file = event.target.files[0];
+      }
       this.checkFile(file);
     }
   }
